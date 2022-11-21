@@ -115,7 +115,6 @@ export default {
       this.playDeck = deck;
     },
     getImgUrl(card) {
-      console.log(card);
       let cardPattern = card.pattern ? card.pattern.toLowerCase() : "";
       let cardValue = card.value || "";
       //   var images = require.context("../assets/", false, /\.svg$/);

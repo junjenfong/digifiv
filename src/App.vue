@@ -19,11 +19,9 @@ export default {
   },
   methods: {
     check(e) {
-      console.log(e);
       this.hideButton = e;
     },
     reset() {
-      console.log("reset");
       this.randomkey += 1;
     }
   }
