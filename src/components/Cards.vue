@@ -7,13 +7,13 @@
     </h1>
     <h2 v-if="winner">{{ winner }}</h2>
     <button @click="draw()" v-if="!hideButton">draw</button>
-    <div>
+    <div v-if="player1Card.value">
       <p>Player 1 :</p>
-      <img v-if="player1Card.value" :src="getImgUrl(this.player1Card)" />
+      <img :src="getImgUrl(this.player1Card)" />
     </div>
-    <div>
+    <div v-if="player2Card.value">
       <p>Player 2 :</p>
-      <img v-if="player2Card.value" :src="getImgUrl(this.player2Card)" />
+      <img :src="getImgUrl(this.player2Card)" />
     </div>
   </div>
 </template>
