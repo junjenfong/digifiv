@@ -3,10 +3,10 @@ import Cards from "./components/Cards.vue";
 </script>
 
 <template>
-  <Cards :key="randomkey" :hideButton="hideButton" @done="check($event)" />
   <button @click="reset" v-if="hideButton" @update:parent="fromChild = $event">
     Rematch
   </button>
+  <Cards :key="randomkey" :hideButton="hideButton" @done="check($event)" />
 </template>
 
 <script>
@@ -23,6 +23,7 @@ export default {
     },
     reset() {
       this.randomkey += 1;
+      this.hideButton = !this.hideButton;
     }
   }
 };

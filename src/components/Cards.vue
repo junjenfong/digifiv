@@ -7,8 +7,14 @@
     </h1>
     <h2 v-if="winner">{{ winner }}</h2>
     <button @click="draw()" v-if="!hideButton">draw</button>
-    <img v-if="player1Card.value" :src="getImgUrl(this.player1Card)" />
-    <img v-if="player2Card.value" :src="getImgUrl(this.player2Card)" />
+    <div>
+      <p>Player 1 :</p>
+      <img v-if="player1Card.value" :src="getImgUrl(this.player1Card)" />
+    </div>
+    <div>
+      <p>Player 2 :</p>
+      <img v-if="player2Card.value" :src="getImgUrl(this.player2Card)" />
+    </div>
   </div>
 </template>
 
@@ -114,11 +120,34 @@ export default {
       }
       this.playDeck = deck;
     },
+    cardValueFormatting(card) {
+      switch (card) {
+        case 1:
+          return "ace";
+        case 11:
+          return "jack";
+        case 12:
+          return "queen";
+        case 13:
+          return "king";
+      }
+      return card;
+    },
     getImgUrl(card) {
       let cardPattern = card.pattern ? card.pattern.toLowerCase() : "";
-      let cardValue = card.value || "";
-      //   var images = require.context("../assets/", false, /\.svg$/);
-      return "./assets/" + cardPattern + "_" + cardValue + ".svg";
+      let cardValue = parseInt(card.value) || "";
+      if (
+        cardValue === 1 ||
+        cardValue === 11 ||
+        cardValue == 12 ||
+        cardValue == 13
+      ) {
+        cardValue = this.cardValueFormatting(cardValue);
+      }
+      return new URL(
+        "../assets/" + cardPattern + "_" + cardValue + ".svg",
+        import.meta.url
+      );
     }
   }
 };
