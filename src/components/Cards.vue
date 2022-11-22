@@ -33,21 +33,7 @@ export default {
       player1Card: {},
       player2Card: {},
       patterns: ["Spades", "Hearts", "Clubs", "Diamonds"],
-      values: [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13"
-      ],
+      values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
       playDeck: [],
       winner: ""
     };
@@ -73,8 +59,8 @@ export default {
       this.player2Card = this.playDeck.splice(0, 1)[0];
     },
     scoreCount() {
-      let player1 = parseInt(this.player1Card.value);
-      let player2 = parseInt(this.player2Card.value);
+      let player1 = this.player1Card.value;
+      let player2 = this.player2Card.value;
       if (player1 > player2) {
         this.player1Score += 1;
       } else if (player2 > player1) {
