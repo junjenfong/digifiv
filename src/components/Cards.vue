@@ -77,6 +77,7 @@ export default {
     },
     determineWinner() {
       //   this.hideButton = true;
+      this.scoreCount();
       this.$emit("done", true);
       if (this.player1Score > this.player2Score) {
         this.winner = `Winner is player 1 with ${this.player1Score}`;
@@ -116,8 +117,9 @@ export default {
           return "queen";
         case 13:
           return "king";
+        default:
+          return card;
       }
-      return card;
     },
     getImgUrl(card) {
       let cardPattern = card.pattern ? card.pattern.toLowerCase() : "";
