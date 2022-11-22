@@ -3,9 +3,7 @@ import Cards from "./components/Cards.vue";
 </script>
 
 <template>
-  <button @click="reset" v-if="hideButton" @update:parent="fromChild = $event">
-    Rematch
-  </button>
+  <button @click="reset" v-if="hideButton">Rematch</button>
   <Cards :key="randomkey" :hideButton="hideButton" @done="check($event)" />
 </template>
 

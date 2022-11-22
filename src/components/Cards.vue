@@ -53,7 +53,7 @@ export default {
     };
   },
   watch: {
-    maxCardsDeck(value, oldValue) {
+    maxCardsDeck(value) {
       value === 0 ? this.determineWinner() : this.scoreCount();
     }
   },
