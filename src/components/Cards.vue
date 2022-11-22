@@ -123,7 +123,7 @@ export default {
     },
     getImgUrl(card) {
       let cardPattern = card.pattern ? card.pattern.toLowerCase() : "";
-      let cardValue = parseInt(card.value) || "";
+      let cardValue = card.value || 0;
       if (
         cardValue === 1 ||
         cardValue === 11 ||
